@@ -1,3 +1,6 @@
+const startBtn = document.getElementById('start')
+const endBtn = document.getElementById('end')
+
 //en klass för hur en cell i griden ska se ut och bete sig
 class Cell {
     constructor(i, j, size) {
@@ -13,6 +16,8 @@ class Cell {
         this.parent = undefined
         this.wall = false
         this.col = 'white'
+        this.start = false
+        this.end = false
     }
 
     wallCheck(){
@@ -64,4 +69,45 @@ class Cell {
             this.neighbors.push(grid[this.i + 1][this.j + 1])
         }
     }
+
+    startCheck(){
+        canvas.addEventListener('click', e =>{
+
+            let x = getCursorPosition(canvas, e)[0]
+            let y = getCursorPosition(canvas, e)[1]
+
+            if(x > this.x && x < this.x + this.size && y > this.y && y < this.y + this.size){
+                this.start = true
+            }
+        })
+    }
+
+    endCheck(){
+        canvas.addEventListener('click', e =>{
+
+            let x = getCursorPosition(canvas, e)[0]
+            let y = getCursorPosition(canvas, e)[1]
+
+            if(x > this.x && x < this.x + this.size && y > this.y && y < this.y + this.size){
+                this.end = true
+            }
+        })
+    }
 }
+
+
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    let cords = [x, y]
+
+    return cords
+}
+
+startBtn.addEventListener('click', function(){
+    console.log('click')
+})
+ 
+
+

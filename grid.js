@@ -34,14 +34,56 @@ class Grid {
         }
 
         //start cell och mål cell + visualisering
-        this.end = this.grid[this.column - 1][this.row - 1]
+        //this.end = this.grid[this.column - 1][this.row - 1]
         this.start = this.grid[0][0]
 
-        this.start.wall = false
-        this.end.wall = false
-
-        this.start.draw('red')
         
-        this.end.draw('blue')
+
+        
+    }
+
+    setStart(){
+        for (let i = 0; i < this.row; i++){
+            for (let j = 0; j < this.column; j++){
+
+                this.grid[i][j].startCheck()
+                if(this.grid[i][j].start){
+                    this.start = this.grid[i][j]
+                }
+            }
+        }
+        
+        if(this.start){
+            this.start.draw('red')
+            this.start.wall = false 
+        }
+        
+
+        if(this.end){
+            this.end.draw('blue')
+            this.end.wall = false
+        }
+    }
+
+    setEnd(){
+        for (let i = 0; i < this.row; i++){
+            for (let j = 0; j < this.column; j++){
+
+                this.grid[i][j].endCheck()
+                if(this.grid[i][j].end){
+                    this.end = this.grid[i][j]
+                }
+            }
+        }
+        
+        if(this.start){
+            this.start.draw('red')
+            this.start.wall = false 
+        }
+        
+        if(this.end){
+            this.end.draw('blue')
+            this.end.wall = false
+        }
     }
 }
