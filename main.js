@@ -12,8 +12,8 @@ let startSet
 let canvasHeight = canvas.height
 let canvasWidth = canvas.width
 
-let rows = 50
-let cols = 50
+let rows = 10
+let cols = 10
 
 let done = false
 
