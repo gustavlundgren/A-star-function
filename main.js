@@ -22,7 +22,12 @@ const grid = new Grid(0,0, cols, rows, canvas.height, canvas.width)
 grid.createGrid()
 
 runBtn.addEventListener('click', function(){
-    runAlg = true
+    if(runAlg){
+        location.reload()
+    }else{
+        runAlg = true
+        runBtn.textContent = 'Reset'  
+    }
 })
 
 startBtn.addEventListener('click', function(){

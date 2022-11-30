@@ -62,8 +62,8 @@ class Cell {
         if(this.i > 0 && this.j < rows - 1){
             this.neighbors.push(grid[this.i - 1][this.j + 1])
         }
-        if(this.i < cols - 1 && this.j > rows - 1){
-            this.neighbors.push(grid[this.i + 1][this.j + 1])
+        if(this.i < cols - 1 && this.j > 0){
+            this.neighbors.push(grid[this.i + 1][this.j - 1])
         }
     }
 
@@ -92,7 +92,6 @@ class Cell {
     }
 }
 
-
 function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect()
     const x = event.clientX - rect.left
@@ -101,7 +100,3 @@ function getCursorPosition(canvas, event) {
 
     return cords
 }
-
- 
-
-
