@@ -1,7 +1,13 @@
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 const runBtn = document.getElementById('run')
+const startBtn = document.getElementById('start')
+const endBtn = document.getElementById('end')
+
+
 let runAlg
+let endSet
+let startSet
 
 let canvasHeight = canvas.height
 let canvasWidth = canvas.width
@@ -19,13 +25,32 @@ runBtn.addEventListener('click', function(){
     runAlg = true
 })
 
+startBtn.addEventListener('click', function(){
+    startSet = true
+})
+
+endBtn.addEventListener('click', function(){
+    endSet = true
+})
+
 function animate() {
     if(!done && runAlg){
         aStar(grid.start, grid.end)
     }
     
-    if(!runAlg){
+    if(!runAlg && startSet){
+        grid.setStart()
+
+        if(grid.start){
+            startSet = false
+        }
+    }
+
+    if(!runAlg && endSet){
         grid.setEnd()
+        if(grid.end){
+            endSet = false
+        }
     }
     
 

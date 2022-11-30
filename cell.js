@@ -1,6 +1,3 @@
-const startBtn = document.getElementById('start')
-const endBtn = document.getElementById('end')
-
 //en klass för hur en cell i griden ska se ut och bete sig
 class Cell {
     constructor(i, j, size) {
@@ -105,9 +102,6 @@ function getCursorPosition(canvas, event) {
     return cords
 }
 
-startBtn.addEventListener('click', function(){
-    console.log('click')
-})
  
 
 

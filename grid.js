@@ -35,11 +35,7 @@ class Grid {
 
         //start cell och mål cell + visualisering
         //this.end = this.grid[this.column - 1][this.row - 1]
-        this.start = this.grid[0][0]
-
-        
-
-        
+        //this.start = this.grid[0][0]  
     }
 
     setStart(){
@@ -59,10 +55,10 @@ class Grid {
         }
         
 
-        if(this.end){
+        /*if(this.end){
             this.end.draw('blue')
             this.end.wall = false
-        }
+        }*/
     }
 
     setEnd(){
@@ -76,10 +72,10 @@ class Grid {
             }
         }
         
-        if(this.start){
+        /*if(this.start){
             this.start.draw('red')
             this.start.wall = false 
-        }
+        }*/
         
         if(this.end){
             this.end.draw('blue')
